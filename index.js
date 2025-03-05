@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173", // React app runs on this port
+    origin: "http://localhost:3000/", // React app runs on this port
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
