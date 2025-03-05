@@ -32,19 +32,17 @@ app.get("/", (request, response) => {
 
 app.use("/books", booksRoute);
 
-console.log(process.env.mongoDBURL);
-
 mongoose
-  .connect(process.env.mongoDBURL, {
+  .connect("mongodb+srv://ctyper824:simplepassword!@cluster0.gzcwm.mongodb.net/?retryWrites=true&w=majority&tls=true", {
     connectTimeoutMS: 10000, // 10 seconds
   })
   .then(() => {
     console.log("Successfully connected to database.");
-    // app.listen(process.env.PORT, () => {
-    //   console.log(`App is listening on port: ${process.env.PORT}`);
-    // });
+    app.listen(5555, () => {
+      console.log(`App is listening on port: ${5555}`);
+    });
   })
   .catch((error) => {
     console.error("MongoDB connection error:", error);
   });
-export default app;
+// export default app;
