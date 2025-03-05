@@ -33,7 +33,9 @@ app.use("/books", booksRoute);
 console.log(process.env.mongoDBURL);
 
 mongoose
-  .connect(process.env.mongoDBURL)
+  .connect(process.env.mongoDBURL, {
+    connectTimeoutMS: 10000, // 10 seconds
+  })
   .then(() => {
     console.log("Successfully connected to database.");
     // app.listen(process.env.PORT, () => {
@@ -41,6 +43,6 @@ mongoose
     // });
   })
   .catch((error) => {
-    console.log(error);
+    console.error("MongoDB connection error:", error);
   });
 export default app;
