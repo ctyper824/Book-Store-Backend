@@ -32,6 +32,7 @@ router.post("/", async (request, response) => {
 
 router.get("/", async (request, response) => {
   try {
+    console.log('get');
     const books = await Book.find({});
     return response.status(200).send({
       count: books.length,
